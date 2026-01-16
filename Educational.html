@@ -1,1 +1,225 @@
-j
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- General Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0d0d15; /* Deep dark background */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 15px;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* --- ELECTRIC HEADER STYLE --- */
+        .header-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 40px;
+            padding: 4px; /* Border thickness */
+            border-radius: 20px;
+            /* Electric Gradient Background */
+            background: linear-gradient(90deg, #00d2ff, #9b00ff, #00d2ff);
+            background-size: 200%;
+            animation: electric-move 3s linear infinite;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.5), 0 0 30px rgba(155, 0, 255, 0.3);
+        }
+
+        /* Inner part of header */
+        .header-inner {
+            background: #121225;
+            padding: 25px 15px;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Outer Glow/Blur Effect */
+        .header-container::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(90deg, #00d2ff, #9b00ff, #00d2ff);
+            background-size: 200%;
+            border-radius: 22px;
+            z-index: -1;
+            filter: blur(15px);
+            opacity: 0.8;
+            animation: electric-move 3s linear infinite;
+        }
+
+        @keyframes electric-move {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .header-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.8);
+        }
+
+        /* --- 2 COLUMN GRID LAYOUT --- */
+        .link-container {
+            display: grid;
+            /* YE IMPORTANT HAI: 2 Columns fix kar diye hain */
+            grid-template-columns: 1fr 1fr; 
+            gap: 15px; /* Beech ka gap kam kiya */
+            width: 100%;
+            max-width: 800px;
+        }
+
+        /* --- Card Wrapper (Border Animation) --- */
+        .card-wrapper {
+            text-decoration: none;
+            color: white;
+            display: block;
+            position: relative;
+            border-radius: 15px;
+            padding: 2px; /* Border patla kiya */
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            background-size: 400%;
+            animation: border-flow 10s linear infinite;
+        }
+
+        .card-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: inherit;
+            border-radius: 15px;
+            filter: blur(10px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        @keyframes border-flow {
+            0% { background-position: 0 0; }
+            50% { background-position: 100% 0; }
+            100% { background-position: 0 0; }
+        }
+
+        /* --- Inner Card Content (Small Box) --- */
+        .card-content {
+            background: #1a1a2e;
+            border-radius: 13px;
+            padding: 20px 10px; /* Padding kam ki taaki content fit ho */
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .card-wrapper:active .card-content {
+            transform: scale(0.95);
+        }
+
+        /* --- Small Icon Style --- */
+        .card-icon-img {
+            width: 60px;  /* Icon chhota kiya (Pehle 90px tha) */
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 2px solid #00d2ff;
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+        }
+
+        /* --- Small Text Style --- */
+        .card-content h3 {
+            font-size: 1rem; /* Text chhota kiya */
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #00d2ff;
+            line-height: 1.2;
+        }
+
+        .card-content p {
+            font-size: 0.75rem; /* Description font chhota */
+            color: #bbb;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* 2 line se zyada text hide ho jayega */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.2;
+        }
+
+        /* --- Mobile Tweaks --- */
+        @media (max-width: 400px) {
+            .header-title { font-size: 1.8rem; }
+            .card-icon-img { width: 50px; height: 50px; }
+            .card-content h3 { font-size: 0.9rem; }
+            .link-container { gap: 10px; } /* Gap aur kam chhoti screen pe */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="header-inner">
+            <h1 class="header-title">EDUCATIONAL HUB</h1>
+        </div>
+    </div>
+
+    <div class="link-container">
+
+        <a href="https://rgvikramjeet.netlify.app/" target="_blank" class="card-wrapper">
+            <div class="card-content">
+                <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" class="card-icon-img" alt="Google">
+                <h3>RG VIKRAMJIT</h3>
+                <p>learn And Grow Yourself</p>
+            </div>
+        </a>
+
+        <a href="https://www.wikipedia.org" target="_blank" class="card-wrapper">
+            <div class="card-content">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" class="card-icon-img" alt="Wiki">
+                <h3>Wikipedia</h3>
+                <p>Encyclopedia</p>
+            </div>
+        </a>
+
+        <a href="#" target="_blank" class="card-wrapper">
+            <div class="card-content">
+                <img src="https://cdn-icons-png.flaticon.com/512/3291/3291695.png" class="card-icon-img" alt="Icon">
+                <h3>Rg Vikramjit</h3>
+                <p>App Portal</p>
+            </div>
+        </a>
+
+        <a href="#" target="_blank" class="card-wrapper">
+            <div class="card-content">
+                <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" class="card-icon-img" alt="Icon">
+                <h3>Telegram</h3>
+                <p>Join Channel</p>
+            </div>
+        </a>
+
+    </div>
+
+</body>
+</html>
